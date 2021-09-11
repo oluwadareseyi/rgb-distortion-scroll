@@ -2,3 +2,64 @@ body {
   margin: 0;
   padding: 0;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  overscroll-behavior: none;
+  background: #000000;
+  height: 100vh;
+  width: 100%;
+}
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.scrollable {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    position: absolute;
+    left: 55%;
+    top: 60%;
+    z-index: 5;
+    color: azure;
+    font-family: "Harmond", serif;
+  }
+
+  img {
+    position: absolute;
+    height: 60%;
+  }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
