@@ -54,6 +54,8 @@ main {
   img {
     position: absolute;
     height: 60%;
+    opacity: 0;
+    visibility: hidden;
   }
 }
 

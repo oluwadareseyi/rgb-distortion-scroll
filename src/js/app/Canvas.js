@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import Mesh from "./Mesh";
 
@@ -9,10 +8,10 @@ export default class Canvas {
     this.images = [...document.querySelectorAll("img")];
     this.meshItems = [];
     this.scene = new THREE.Scene();
+    this.geometry = new THREE.PlaneGeometry(1, 1, 30, 30);
 
     this.setupCamera();
     this.createMeshItems();
-    this.update();
   }
 
   // Getter function used to get screen dimensions used for the camera and mesh materials
@@ -47,14 +46,26 @@ export default class Canvas {
   }
 
   createMeshItems() {
-    this.images.forEach((image) => {});
+    this.images.forEach((image) => {
+      const mesh = new Mesh(image, this.scene, this.geometry);
+      this.meshItems.push(mesh);
+    });
   }
 
   onResize() {
     this.camera.aspect = this.viewport.aspectRatio; // readjust the aspect ratio.
     this.camera.updateProjectionMatrix(); // Used to recalulate projectin dimensions.
     this.renderer.setSize(this.viewport.width, this.viewport.height);
+
+    this.meshItems.forEach((mesh) => {
+      mesh.onResize();
+    });
   }
 
-  update() {}
+  update(scroll) {
+    this.meshItems.forEach((mesh) => {
+      mesh.render(scroll);
+    });
+    this.renderer.render(this.scene, this.camera);
+  }
 }
