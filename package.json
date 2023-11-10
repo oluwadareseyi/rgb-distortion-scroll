@@ -8,10 +8,10 @@
     "dev": "rm -rf .parcel-cache && yarn parcel src/index.html"
   },
   "devDependencies": {
-    "@parcel/transformer-glsl": "2.0.0-rc.0",
-    "@parcel/transformer-image": "2.0.0-rc.0",
-    "@parcel/transformer-sass": "2.0.0-rc.0",
-    "parcel": "^2.0.0-rc.0"
+    "@parcel/transformer-glsl": "2.10.2",
+    "@parcel/transformer-image": "2.0.0",
+    "@parcel/transformer-sass": "2.10.2",
+    "parcel": "^2.7.0"
   },
   "dependencies": {
     "dat.gui": "^0.7.7",
